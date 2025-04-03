@@ -1,6 +1,6 @@
 use std::net::TcpListener;
 
-use zero2prod2::run;
+use zero2prod2::startup::run;
 
 fn spawn_app() -> String {
     let listener = TcpListener::bind("127.0.0.1:0").expect("Failed to bind address");
