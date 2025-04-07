@@ -14,8 +14,17 @@ name = "zero2prod"
 actix-web = { version = "4.10.2" }
 chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
 config = { version = "0.15.11" }
+secrecy = { version = "0.10.3", features = ["serde"] }
 serde = { version = "1.0.219", features = ["derive"] }
 tokio = { version = "1.44.2", features = ["macros", "rt-multi-thread"] }
+tracing = { version = "0.1.41", features = ["log"] }
+tracing-actix-web = "0.7.16"
+tracing-log = "0.2.0"
+tracing-bunyan-formatter = "0.3.10"
+tracing-subscriber = { version = "0.3.19", features = [
+    "registry",
+    "env-filter",
+] }
 uuid = { version = "1", features = ["v4"] }
 
 [dependencies.sqlx]
