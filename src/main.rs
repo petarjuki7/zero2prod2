@@ -15,11 +15,13 @@ async fn main() -> Result<(), Error> {
 
     let configuration = get_configuration().expect("Failed to read configuration");
     let connection_pool =
-        PgPool::connect(configuration.database.connection_string().expose_secret())
-            .await
+        PgPool::connect_lazy(configuration.database.connection_string().expose_secret())
             .expect("Failed to connect to Postgres");
 
-    let listener = TcpListener::bind(format!("127.0.0.1:{}", configuration.application_port))?;
+    let listener = TcpListener::bind(format!(
+        "{}:{}",
+        configuration.application.host, configuration.application.port
+    ))?;
 
     run(listener, connection_pool)?.await
 }
