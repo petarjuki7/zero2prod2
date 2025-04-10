@@ -13,6 +13,7 @@ name = "zero2prod"
 [dependencies]
 actix-web = { version = "4.10.2" }
 chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
+claims = "0.8.0"
 config = { version = "0.15.11" }
 secrecy = { version = "0.10.3", features = ["serde"] }
 serde = { version = "1.0.219", features = ["derive"] }
@@ -26,7 +27,9 @@ tracing-subscriber = { version = "0.3.19", features = [
     "registry",
     "env-filter",
 ] }
-uuid = { version = "1", features = ["v4"] }
+unicode-segmentation = "1.12.0"
+uuid = { version = "1.16.0", features = ["v4"] }
+validator = "0.20.0"
 
 [dependencies.sqlx]
 version = "0.8.3"
@@ -41,4 +44,8 @@ features = [
 ]
 
 [dev-dependencies]
+fake = "4.3.0"
 reqwest = { version = "0.12.15" }
+quickcheck_macros = "1"
+rand = "0.9.0"
+quickcheck = "1.0.3"
